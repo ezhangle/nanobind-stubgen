@@ -65,6 +65,8 @@ class StubModule(StubEntry):
             os.makedirs(output_path, exist_ok=True)
 
         if self.has_sub_modules:
+            if output_path.is_file():
+                output_path = output_path.parent
             output_path = output_path.joinpath(self.name)
             os.makedirs(output_path, exist_ok=True)
 
